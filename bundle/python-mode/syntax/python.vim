@@ -62,7 +62,6 @@ call pymode#default('g:pymode_syntax_slow_sync', 1)
 
 " }}}
 
-
 " For version 5.x: Clear all syntax items
 if version < 600
     syntax clear
@@ -118,23 +117,20 @@ endif
     if g:pymode_syntax_highlight_stars_operator
         syn match pythonExtraOperator "\%(\*\|\*\*\)"
     endif
-    
+
     if g:pymode_syntax_highlight_self
         syn keyword pythonSelf self cls
     endif
 
 " }}}
 
-
 " Decorators {{{
 " ==============
 
     syn match   pythonDecorator "@" display nextgroup=pythonDottedName skipwhite
     syn match   pythonDottedName "[a-zA-Z_][a-zA-Z0-9_]*\(\.[a-zA-Z_][a-zA-Z0-9_]*\)*" display contained
-    syn match   pythonDot        "\." display containedin=pythonDottedName
 
 " }}}
-
 
 " Comments {{{
 " ============
@@ -145,7 +141,6 @@ endif
     syn keyword pythonTodo      TODO FIXME XXX contained
 
 " }}}
-
 
 " Errors {{{
 " ==========
@@ -166,7 +161,6 @@ endif
     endif
 
 " }}}
-
 
 " Strings {{{
 " ===========
@@ -271,8 +265,8 @@ endif
         syn keyword pythonBuiltinObj True False Ellipsis None NotImplemented
         syn keyword pythonBuiltinObj __debug__ __doc__ __file__ __name__ __package__
     endif
-    
-    if g:pymode_syntax_builtin_types    
+
+    if g:pymode_syntax_builtin_types
         syn keyword pythonBuiltinType type object
         syn keyword pythonBuiltinType str basestring unicode buffer bytearray bytes chr unichr
         syn keyword pythonBuiltinType dict int long bool float complex set frozenset list tuple
@@ -312,6 +306,12 @@ endif
         syn keyword pythonExClass   UnboundLocalError UnicodeError
         syn keyword pythonExClass   UnicodeEncodeError UnicodeDecodeError
         syn keyword pythonExClass   UnicodeTranslateError ValueError VMSError
+        syn keyword pythonExClass   BlockingIOError ChildProcessError ConnectionError
+        syn keyword pythonExClass   BrokenPipeError ConnectionAbortedError
+        syn keyword pythonExClass   ConnectionRefusedError ConnectionResetError
+        syn keyword pythonExClass   FileExistsError FileNotFoundError InterruptedError
+        syn keyword pythonExClass   IsADirectoryError NotADirectoryError PermissionError
+        syn keyword pythonExClass   ProcessLookupError TimeoutError
         syn keyword pythonExClass   WindowsError ZeroDivisionError
         syn keyword pythonExClass   Warning UserWarning BytesWarning DeprecationWarning
         syn keyword pythonExClass   PendingDepricationWarning SyntaxWarning
@@ -320,7 +320,6 @@ endif
     endif
 
 " }}}
-
 
 if g:pymode_syntax_slow_sync
     syn sync minlines=2000
@@ -355,7 +354,6 @@ endif
 
     hi def link  pythonDecorator    Define
     hi def link  pythonDottedName   Function
-    hi def link  pythonDot          Normal
 
     hi def link  pythonComment      Comment
     hi def link  pythonCoding       Special
