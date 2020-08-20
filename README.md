@@ -3,9 +3,9 @@ Memo
 
 just for some reason that I have not figure it out..
 
-the `python-mode` thing did not working currectly as a git submodule.
+the `python-mode` thing did not work currectly as a git submodule.
 
-even I have already adding it into the `.gitmodules` it will not getting pull down as expected.
+even I have already adding it into the `.gitmodules` it will not gets pull down as expected.
 
 so you have to do it manully like:
 
