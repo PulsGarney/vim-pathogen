@@ -1,11 +1,10 @@
-
 " ========基本设置=====================================
 
 " 去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限
 set nocompatible
 
 " use mouse everywhere
-" set mouse=a
+set mouse=a
 
 " 行号
 set number
@@ -18,13 +17,10 @@ set history=4096
 
 " 背景
 set t_Co=256
-set background=dark
+"set background=dark
 
 " 语法高亮度显示
-" syntax on
 syntax enable
-" highlight Normal ctermbg=NONE
-" highlight nonText ctermbg=NONE
 
 " 高亮行
 set cursorcolumn
@@ -33,9 +29,6 @@ set cursorline
 " 自动对齐、智能对齐
 set autoindent
 set smartindent
-
-" 支持C/C++的缩进
-" set cin
 
 " 设置tab键为4个空格
 set tabstop=4
@@ -78,7 +71,6 @@ set noswapfile
 
 " 我的状态行显示的内容（包括文件类型和解码）
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
-" set statusline=[%F]%y%r%m%*%=[Line:%l/%L,Column:%c][%p%%]
 
 " 总是显示状态行
 set laststatus=2
@@ -87,7 +79,7 @@ set laststatus=2
 set ruler
 
 " 命令行（在状态行下）的高度，默认为1，这里是2
-" set cmdheight=2
+set cmdheight=2
 
 " 能够漂亮地显示.NFO文件
 set encoding=utf-8
@@ -118,7 +110,6 @@ let mapleader = ","
 
 " ========插件配置=====================================
 
-
 " ========Pathogen========
 
 runtime bundle/vim-pathogen/autoload/pathogen.vim
@@ -126,14 +117,19 @@ call pathogen#infect()
 Helptags
 
 
+" ========Coc========
+
+" Use <Tab> and <S-Tab> to navigate the completion list
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" Use <Ctrl-F> to format documents with prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+noremap <C-F> :Prettier<CR>
+
+
 " ========Space-vim-dark========
 
 colorscheme space-vim-dark
-"   Range:   233 (darkest) ~ 238 (lightest)
-"   Default: 235
-" let g:space_vim_dark_background = 234
-color space-vim-dark
-" colorscheme monokai-soda
 
 
 " ========NERDTree========
@@ -183,59 +179,11 @@ let g:nerdtree_tabs_synchronize_view=1
 let g:nerdtree_tabs_focus_on_files=1
 
 " Open NERDTree by default
-" autocmd VimEnter * NERDTree
-" autocmd VimEnter * wincmd p
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
 
 " Close NERDTree when Exit
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-
-" ========Python-mode========
-
-
-let g:pymode=1
-let g:pymode_trim_whitespaces=1
-let g:pymode_indent=1
-let g:pymode_folding=1
-let g:pymode_motion=1
-let g:pymode_lint=1
-let g:pymode_lint_on_fly=0
-let g:pymode_lint_message=1
-let g:pymode_lint_checkers=['pep8', 'pyflakes', 'mccabe']
-let g:pymode_lint_signs=1
-let g:pymode_rope_completion=1
-let g:pymode_rope_complete_on_dot=1
-let g:pymode_rope_completion_bind='<C-Space>'
-let g:pymode_rope_autoimport=0
-let g:pymode_rope_rename_bind='<C-c>rr'
-let g:pymode_syntax_all=1
-let g:pymode_syntax_highlight_self=g:pymode_syntax_all
-let g:pymode_syntax_indent_errors=g:pymode_syntax_all
-let g:pymode_syntax_space_errors=g:pymode_syntax_all
-
-
-" ========Syntastic========
-
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 1
-
-
-" ========Supertab========
-
-let g:SuperTabRetainCompletionType=2
-let g:SuperTabDefaultCompletionType="<C-X><C-O>"
-
-
-" ========Pydiction========
-
-let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
-let g:pydiction_menu_height = 10
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 
 " ========Omnicppcomplete========
@@ -248,7 +196,5 @@ let OmniCpp_ShowPrototypeInAbbr=1
 let OmniCpp_MayCompleteArrow=1
 let OmniCpp_MayCompleteDot=1
 let OmniCpp_MayCompleteScope=1
-
-
 
 
