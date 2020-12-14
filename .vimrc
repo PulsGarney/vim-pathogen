@@ -111,6 +111,8 @@ noremap <C-F> :Prettier<CR>
 " Use <Space-E> to open explorer
 " Using Coc-explorer
 noremap <space>e :CocCommand explorer<CR>
+" Close Coc-explorer if it is the only window
+autocmd BufEnter * if (&ft == 'coc-explorer' && winnr("$") == 1) | q | endif
 
 
 " ========Space-vim-dark========

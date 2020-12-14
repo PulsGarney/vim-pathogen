@@ -3,5 +3,8 @@
   "prettier.trailingComma": "all",
   "prettier.bracketSpacing": false,
   "explorer.file.showHiddenFiles": true,
-  "explorer.icon.enableNerdfont": true
+  "explorer.icon.enableNerdfont": true,
+  "python.linting.pylintEnabled": false,
+  "python.linting.pep8Enabled": true,
+  "python.linting.enabled": true
 }
