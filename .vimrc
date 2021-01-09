@@ -81,6 +81,9 @@ set ruler
 " 命令行（在状态行下）的高度，默认为1，这里是2
 set cmdheight=2
 
+" Backspace
+set backspace=indent,eol,start
+
 " Leader
 let mapleader = ","
 
