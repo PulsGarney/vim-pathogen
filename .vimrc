@@ -85,10 +85,12 @@ set cmdheight=2
 let mapleader = ","
 
 " copy to system
-noremap <Leader>y "*y
-noremap <Leader>Y "+y
-noremap <Leader>p "*p
-noremap <Leader>P "+p
+" noremap <Leader>y "*y
+" noremap <Leader>Y "+y
+" noremap <Leader>p "*p
+" noremap <Leader>P "+p
+:vmap <C-c> "+y
+:vmap <C-v> "+p
 
 
 " ========插件配置=====================================
