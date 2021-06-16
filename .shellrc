@@ -11,8 +11,7 @@ function proxy_off(){
  
 function proxy_on() {
         export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
-        # export http_proxy="socks5://127.0.0.1:1086"
-        export http_proxy="http://127.0.0.1:1087"
+        export http_proxy="socks5://127.0.0.1:1080"
         export https_proxy=$http_proxy
         export ftp_proxy=$http_proxy
         export rsync_proxy=$http_proxy
@@ -45,7 +44,7 @@ alias py='python3'
 alias py2='python'
 alias gs='gst'
 alias aliass='alias | grep'
-alias random='py /Users/pulsgarney/develop/random_bytes.py'
+alias random='py ~/.vim/bin/random_bytes.py'
 alias vi='/usr/local/bin/vi $*'
 alias vim='/usr/local/bin/vim $*'
 alias ip='curl cip.cc'
