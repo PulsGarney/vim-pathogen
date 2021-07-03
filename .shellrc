@@ -29,7 +29,7 @@ function proxy_run() {
 }
 
 function ccat() {
-    local style="native"
+    local style="material"
     if [ $# -eq 0 ]; then
         pygmentize -P style=$style -P tabsize=4 -f terminal256 -g
     else
