@@ -19,15 +19,15 @@ defscrollback 10000
 vbell off
 
 # 重映射 Ctrl A
-escape ^Mm
+# escape ^Mm
 
 # 下标签设置
-# hardstatus on
-# hardstatus alwayslastline
-# hardstatus string "%{.wk}%-w%{.ck}%n %t%{-}%+w %=%{..G} %{..r} %d.%M.%Y %c"
-# termcapinfo rxvt 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
-# termcapinfo xterm ti@:te@
-# termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
+hardstatus on
+hardstatus alwayslastline
+hardstatus string "%{.wk}%-w%{.ck}%n %t%{-}%+w %=%{..G} %{..r} %d.%M.%Y %c"
+termcapinfo rxvt 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
+termcapinfo xterm ti@:te@
+termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
 
 # 開啟256色模式
 termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
@@ -37,11 +37,11 @@ termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 defbce on
 term screen-256color
 # mouse tracking allows to switch region focus by clicking
-#mousetrack on
+mousetrack on
 
 # default windows
-screen -t Shell1        1 bash
-screen -t Shell2        2 bash
+screen -t Shell1        1 $SHELL
+screen -t Shell2        2 $SHELL
 # screen -t Vim           3 bash
 # screen -t Python        4 python
 bind c screen 1 # window numbering starts at 1 not 0
